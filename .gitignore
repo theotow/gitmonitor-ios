@@ -26,3 +26,6 @@ project.xcworkspace
 #
 node_modules/
 npm-debug.log
+
+#unsafe 
+ios/Gitmonitor/Files/DIN Alternate Bold.ttf
