@@ -1,5 +1,5 @@
 {
-  "name": "AwesomeProject",
+  "name": "Gitmonitor",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,10 +12,6 @@
     "react-native": "^0.12.0",
     "react-native-camera": "^0.3.8",
     "react-native-remote-push": "^1.0.1",
-    "react-native-router": "^0.2.1",
-    "react-native-swiper": "^1.3.0",
-    "react-native-video": "^0.6.1",
-    "react-router": "^1.0.0",
     "react-timer-mixin": "^0.13.3"
   }
 }

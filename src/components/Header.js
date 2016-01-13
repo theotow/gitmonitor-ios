@@ -61,7 +61,8 @@ var styles = StyleSheet.create({
     padding: 8,
   },
   txt: {
-    fontFamily: 'DIN Alternate',
+    fontFamily: 'Lato',
+    letterSpacing: 1.5,
     fontWeight: 'bold',
     fontSize: 22,
   }

@@ -26,10 +26,6 @@ var styles = StyleSheet.create({
 export default class ListView extends Component {
 
   render() {
-    // Render the top-level element that will contain the complete UI
-    // of your application. You may also choose to use this element
-    // as the single source of data, that is then passed down to
-    // child components.
 
     return (
       <View style={styles.container}>

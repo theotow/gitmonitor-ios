@@ -37,7 +37,7 @@ export default class Button extends Component {
 
   render() {
     return (
-      <TouchableOpacity style={styles.imgWrap} onPress={this._onPressButton}>
+      <TouchableOpacity activeOpacity={0.9} style={styles.imgWrap} onPress={this._onPressButton}>
         <Image source={require('image!Scanbutton')} style={styles.img} />
       </TouchableOpacity>
     );

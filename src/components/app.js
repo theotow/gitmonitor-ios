@@ -1,18 +1,14 @@
 import React from 'react-native';
-// import {Route, Router} from 'react-router';
-
-// import Header from './Header';
-// import Button from './Button';
-// import Camera from './Camera';
-// import ItemList from './ItemList';
-import ListView from '../views/ListView';
+import Router from '../components/Router';
 import QrView from '../views/QrView';
+
 
 
 let {
   View,
   Text,
   Image,
+  Navigator,
   StatusBarIOS,
   TouchableOpacity,
   Component,
@@ -29,13 +25,12 @@ var styles = StyleSheet.create({
 export default class App extends Component {
 
   render() {
-    // Render the top-level element that will contain the complete UI
-    // of your application. You may also choose to use this element
-    // as the single source of data, that is then passed down to
-    // child components.
-
     return (
-      <QrView />
+      <Navigator
+          initialRoute={{name: 'QrView'}}
+          renderScene={Router}
+          configureScene={Router.configureScene}
+      />
     );
   }
 }

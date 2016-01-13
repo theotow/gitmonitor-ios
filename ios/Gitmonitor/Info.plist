@@ -31,6 +31,9 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>DroidSansMono.ttf</string>
+		<string>Lato-Bold.ttf</string>
+		<string>Lato-Regular.ttf</string>
 		<string>DIN Alternate Bold.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

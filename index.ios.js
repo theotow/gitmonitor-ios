@@ -1,8 +1,8 @@
 import React from 'react-native'
-import Root from './src/components/app'
+import Root from './src/components/App'
 
 const {
   AppRegistry
 } = React
 
-AppRegistry.registerComponent('AwesomeProject', () => Root)
+AppRegistry.registerComponent('Gitmonitor', () => Root)
