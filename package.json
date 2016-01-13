@@ -6,12 +6,13 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "babel-core": "^5.1.8",
+    "babel-core": "^5.8.34",
     "babel-loader": "^5.0.0",
     "babel-runtime": "^5.1.8",
-    "react-native": "^0.12.0",
+    "react-native": "^0.17.0",
     "react-native-camera": "^0.3.8",
     "react-native-remote-push": "^1.0.1",
-    "react-timer-mixin": "^0.13.3"
+    "react-timer-mixin": "^0.13.3",
+    "webpack": "^1.12.11"
   }
 }

@@ -86,10 +86,10 @@ export default class ItemList extends Component {
       <View style={styles.itemWrap}>
         <View style={styles.itemWrapInner}>
           <View style={styles.item}>
-            <Text style={styles.itemTxt}>{repo.name}</Text>
+            <Text style={styles.itemTxt}>dddd</Text>
           </View>
           <View style={styles.branch}>
-            <Text style={styles.branchTxt}>{trimBranch(repo.branch)}</Text>
+            <Text style={styles.branchTxt}>dffd</Text>
           </View>
           <View style={styles.boxWrap}>
             <View style={styles.box}>
