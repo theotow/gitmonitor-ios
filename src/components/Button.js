@@ -17,7 +17,15 @@ var styles = StyleSheet.create({
     width: 108,
     height: 108,
   },
-  imgWrap: {
+  imgWrapLeft: {
+    width: 108,
+    height: 108,
+    backgroundColor: 'transparent',
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+  },
+  imgWrapRight: {
     width: 108,
     height: 108,
     backgroundColor: 'transparent',
@@ -27,18 +35,23 @@ var styles = StyleSheet.create({
   }
 });
 
-// TODO: make image changable with prop, left / right , make click prop
-
 export default class Button extends Component {
 
-  _onPressButton(){
-    alert('register: ');
+  _getStyle(left, right){
+    return (left) ? styles.imgWrapLeft : styles.imgWrapRight;
   }
 
   render() {
+
+    const {
+      image,
+      onClick,
+      left
+    } = this.props;
+
     return (
-      <TouchableOpacity activeOpacity={0.9} style={styles.imgWrap} onPress={this._onPressButton}>
-        <Image source={require('image!Scanbutton')} style={styles.img} />
+      <TouchableOpacity activeOpacity={0.9} style={this._getStyle(left)} onPress={onClick}>
+        <Image source={image} style={styles.img} />
       </TouchableOpacity>
     );
   }

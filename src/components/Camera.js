@@ -1,5 +1,5 @@
-import React from "react-native";
-import CameraModule from 'react-native-camera';
+import React from "react-native"
+import CameraModule from 'react-native-camera'
 
 
 let {
@@ -11,7 +11,7 @@ let {
   Component,
   AlertIOS,
   StyleSheet
-} = React;
+} = React
 
 var styles = StyleSheet.create({
   cameraInner: {
@@ -24,7 +24,6 @@ var styles = StyleSheet.create({
   img: {
     height: 196,
     width: 196,
-    // position: 'absolute',
     backgroundColor: 'transparent',
   },
   imgWrap: {
@@ -36,19 +35,12 @@ var styles = StyleSheet.create({
   camera: {
     flex: 1,
   }
-});
-
-// TODO: make image changable with prop, left / right , make click prop
+})
 
 export default class Camera extends Component {
-
-  _onBarCodeRead(){
-    alert('register: ');
-  }
-
   constructor() {
-    super();
-    this.state = {cameraType: CameraModule.constants.Type.back};
+    super()
+    this.state = {cameraType: CameraModule.constants.Type.back}
   }
 
   render() {
@@ -57,7 +49,7 @@ export default class Camera extends Component {
         <CameraModule
           ref="cam"
           style={styles.cameraInner}
-          onBarCodeRead={this._onBarCodeRead}
+          onBarCodeRead={this.props.onScan}
           type={this.state.cameraType}
                     >
         </CameraModule>
@@ -65,6 +57,6 @@ export default class Camera extends Component {
           <Image source={require('image!Qrscan')} style={styles.img} />
         </View>
       </View>
-    );
+    )
   }
 }

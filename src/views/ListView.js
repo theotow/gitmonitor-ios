@@ -1,9 +1,12 @@
 import React from 'react-native';
+import { connect } from 'react-redux/native';
 
 import Header from '../components/Header';
 import Button from '../components/Button';
 import Camera from '../components/Camera';
 import ItemList from '../components/ItemList';
+
+import * as RepoActions from '../actions/RepoActions'
 
 
 let {
@@ -23,16 +26,42 @@ var styles = StyleSheet.create({
   }
 });
 
-export default class ListView extends Component {
+class ListView extends Component {
+
+  _goQr(){
+    this.props.navigator.replace({name: 'QrView'});
+  }
+
+  _toggleRepo(id){
+    this.props.dispatch(RepoActions.toggleItem(id));
+  }
 
   render() {
 
+    const {
+      props: {
+        repos
+      },
+      _toggleRepo
+    } = this
+
     return (
       <View style={styles.container}>
-        <ItemList />
+        <ItemList items={repos.repos} clickHandler={_toggleRepo.bind(this)} />
         <Header />
-        <Button />
+        <Button
+          image={require('image!Scanbutton')}
+          style={styles.btnLeft}
+          onClick={this._goQr.bind(this)} />
       </View>
-    );
+    )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    repos: state.repos
+  }
+}
+
+export default connect(mapStateToProps)(ListView)

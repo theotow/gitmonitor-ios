@@ -29,7 +29,9 @@ var styles = StyleSheet.create({
   headerInner: {
     paddingLeft: 20,
     flex: 1,
+    backgroundColor: 'transparent',
     flexDirection: 'row',
+    marginTop: -15,
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingRight: 20,
@@ -43,7 +45,6 @@ var styles = StyleSheet.create({
     height: 5,
     top: 6,
     right: 0,
-    // backgroundColor: 'blue',
     position: 'absolute',
   },
   left: {
@@ -56,9 +57,9 @@ var styles = StyleSheet.create({
   },
   right: {
     width: 50,
-    // backgroundColor: 'red',
     right: 0,
     padding: 8,
+    opacity: 0
   },
   txt: {
     fontFamily: 'Lato',
@@ -73,7 +74,7 @@ var styles = StyleSheet.create({
 export default class Header extends Component {
 
   _onPressButton(){
-    alert('register: ');
+    //TODO: settings
   }
 
   render() {
@@ -93,16 +94,3 @@ export default class Header extends Component {
     );
   }
 }
-
-// <View style={styles.center}>
-//   <Text style={styles.txt}>GITMONITOR</Text>
-// </View>
-
-// <View style={styles.left}>
-//   <Text style={styles.txt}>GITMONITOR</Text>
-// </View>
-// <View style={styles.right}>
-//   <TouchableOpacity style={styles.imgWrap} onPress={this._onPressButton}>
-//     <Image source={require('image!Group')} style={styles.img} />
-//   </TouchableOpacity>
-// </View>

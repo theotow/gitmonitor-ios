@@ -1,10 +1,13 @@
-import React from 'react-native';
+import React from 'react-native'
+import { connect } from 'react-redux/native'
 
-import Header from '../components/Header';
-import Button from '../components/Button';
-import Camera from '../components/Camera';
-import ItemList from '../components/ItemList';
+import Header from '../components/Header'
+import Button from '../components/Button'
+import Camera from '../components/Camera'
+import ItemList from '../components/ItemList'
 
+import * as RepoActions from '../actions/RepoActions'
+import * as utils from '../utils/api'
 
 let {
   View,
@@ -14,31 +17,69 @@ let {
   TouchableOpacity,
   Component,
   StyleSheet
-} = React;
+} = React
 
 var styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column'
   }
-});
+})
 
-export default class ListView extends Component {
+class QrView extends Component {
 
-  componentDidMount(){
-      let that = this;
-      setTimeout(function(){
-          that.props.navigator.replace({name: 'ListView'});
-      },2000)
+  constructor(props) {
+    super(props);
+    this.state = {
+      checking: false
+    }
+  }
+
+  _goList(){
+    this.props.navigator.replace({name: 'ListView'})
+  }
+
+  _qrScan(repoId){
+    let that = this;
+
+    // kill if already processing
+    if(this.state.checking || !repoId || !repoId.data) return;
+
+    this.setState({checking: true})
+    utils.link(
+      this.props.settings.endpoint,
+      this.props.settings.userId, repoId.data).then((data) => {
+      that.setState({checking: false})
+      that._goList()
+    }).catch(() => {
+      alert('linking failed')
+      that.setState({checking: false})
+    })
   }
 
   render() {
+
+    const {
+      _qrScan
+    } = this
+
     return (
       <View style={styles.container}>
-        <Camera />
+        <Camera onScan={_qrScan.bind(this)} />
         <Header />
-        <Button navigator={this.props.navigator} />
+        <Button
+          left={true}
+          image={require('image!Xbutton')}
+          style={styles.btnLeft} onClick={this._goList.bind(this)} />
       </View>
-    );
+    )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    settings: state.settings
+  }
+}
+
+export default connect(mapStateToProps)(QrView)
