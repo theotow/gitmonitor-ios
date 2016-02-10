@@ -1,6 +1,6 @@
 {
-  "name": "Gitmonitor",
-  "version": "0.0.1",
+  "name": "gitmonitor-ios",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh"
@@ -19,5 +19,18 @@
     "redux-logger": "^2.5.0",
     "redux-thunk": "^1.0.0",
     "webpack": "^1.12.11"
-  }
+  },
+  "description": "## purpose",
+  "main": "index.ios.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theotow/gitmonitor-ios.git"
+  },
+  "author": "Manuel Villing <hi@manuelvilling.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theotow/gitmonitor-ios/issues"
+  },
+  "homepage": "https://github.com/theotow/gitmonitor-ios#readme"
 }

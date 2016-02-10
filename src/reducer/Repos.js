@@ -26,7 +26,7 @@ export function Reducer(state = initialState, action) {
           ...item,
           open: false
         }
-      })}
+      })
       return {repos: mappedReposS}
     default:
       return state

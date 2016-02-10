@@ -11,7 +11,7 @@ export function install(endpoint, data){
 
 export function link(endpoint, iId, rId){
   return fetch(endpoint+ '/api/installations/'+ iId +'/repos/rel/' + rId, {
-      method: 'post',
+      method: 'put',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

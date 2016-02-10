@@ -36,6 +36,13 @@ class ListView extends Component {
     this.props.dispatch(RepoActions.toggleItem(id));
   }
 
+	componentWillMount() {
+		if(this.props.settings.userId !== null &&
+			 this.props.settings.token !== null){
+			 this.props.dispatch(RepoActions.getList(this.props.settings.userId));
+		}
+	}
+
   render() {
 
     const {
@@ -60,7 +67,8 @@ class ListView extends Component {
 
 function mapStateToProps(state) {
   return {
-    repos: state.repos
+    repos: state.repos,
+		settings: state.settings
   }
 }
 

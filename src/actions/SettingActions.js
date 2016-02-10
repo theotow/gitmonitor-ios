@@ -6,7 +6,8 @@ import * as utils from '../utils/api'
 export function setToken(token) {
   return {
     type: SettingsConst.SET_TOKEN,
-    payload: token
+    payload: token,
+		presist: true
   }
 }
 
@@ -18,9 +19,16 @@ export function signup(){
     }).then(response => response.json()).then(function(data){
       return dispatch({
         type: SettingsConst.SET_USERID,
-        payload: data.id
+        payload: data.id,
+				presist: true
       })
     })
+  }
+}
+
+export function writeStore(){
+  return (dispatch, getState) => {
+    return AsyncStorage.setItem(SettingsConst.SETTINGS, JSON.stringify(getState().settings))
   }
 }
 
