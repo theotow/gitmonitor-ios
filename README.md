@@ -16,8 +16,8 @@ Open Xcode project in ios/ folder
 
 ## preview
 
-[img 1](https://github.com/theotow/gitmonitor-ios/raw/master/github/IMG_1743.PNG "img1")
-[img 2](https://github.com/theotow/gitmonitor-ios/raw/master/github/IMG_1742.PNG "img2")
+![img 1](https://github.com/theotow/gitmonitor-ios/raw/master/github/IMG_1743.PNG "img1")
+![img 2](https://github.com/theotow/gitmonitor-ios/raw/master/github/IMG_1742.PNG "img2")
 
 
 ## depends on
