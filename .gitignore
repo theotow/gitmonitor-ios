@@ -32,7 +32,7 @@ local.properties
 #
 node_modules/
 npm-debug.log
-
+.gitmonitor
 
 # bundle
 ios/main.jsbundle
