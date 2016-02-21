@@ -8,12 +8,7 @@ The purpose of this app is to remind you to push your code before you shut your 
 
 1. Setup your env https://facebook.github.io/react-native/docs/getting-started.html#content
 2. Adjust the path to your [gitmonitor-server](https://github.com/theotow/gitmonitor-server) in ```src/reducer/Settings.js```
-
-3. Npm install all
-```
-	npm install
-```
-
+3. Npm install all ```npm install```
 4. Open gitmonitor-ios/ios/Gitmonitor/AppDelegate.m
 5. Adjust localhost to your ip address if your testing on device ```jsCodeLocation = ...```
 
