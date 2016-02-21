@@ -22,6 +22,7 @@
 		641297C21C0E0FCF0058C4F9 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 641297C11C0E0F890058C4F9 /* Lato-Bold.ttf */; };
 		641297C31C0E0FCF0058C4F9 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 641297C01C0E0F7F0058C4F9 /* Lato-Regular.ttf */; };
 		641297C41C0E0FCF0058C4F9 /* DroidSansMono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 641297B11C0E0F3B0058C4F9 /* DroidSansMono.ttf */; };
+		6443AA751C796E9F00DDF3FA /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 6443AA741C796E9F00DDF3FA /* main.jsbundle */; };
 		64596F871C056A23009A22F6 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64596F861C0569FA009A22F6 /* libRCTCamera.a */; };
 		64596F8E1C056F68009A22F6 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64596F8D1C056F4F009A22F6 /* libRCTPushNotification.a */; };
 		64596F951C0573C8009A22F6 /* libRCTRemotePushManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64596F941C0573B2009A22F6 /* libRCTRemotePushManager.a */; };
@@ -141,6 +142,7 @@
 		641297B11C0E0F3B0058C4F9 /* DroidSansMono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DroidSansMono.ttf; sourceTree = "<group>"; };
 		641297C01C0E0F7F0058C4F9 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		641297C11C0E0F890058C4F9 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		6443AA741C796E9F00DDF3FA /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		64596F811C0569FA009A22F6 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		64596F881C056F4F009A22F6 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		64596F8F1C0573B2009A22F6 /* RCTRemotePushManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTRemotePushManager.xcodeproj; path = "../node_modules/react-native-remote-push/RCTRemotePushManager.xcodeproj"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				6443AA741C796E9F00DDF3FA /* main.jsbundle */,
 				13B07FAE1A68108700A75B9A /* Gitmonitor */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -553,6 +556,7 @@
 				641297C21C0E0FCF0058C4F9 /* Lato-Bold.ttf in Resources */,
 				641297C31C0E0FCF0058C4F9 /* Lato-Regular.ttf in Resources */,
 				641297C41C0E0FCF0058C4F9 /* DroidSansMono.ttf in Resources */,
+				6443AA751C796E9F00DDF3FA /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				64BD9DC31C074BDE001B7E21 /* DIN Alternate Bold.ttf in Resources */,
 			);
