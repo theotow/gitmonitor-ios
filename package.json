@@ -21,7 +21,7 @@
     "tcomb-form-native": "^0.4.0",
     "webpack": "^1.12.11"
   },
-  "description": "## purpose",
+  "description": "An app that notifies you if you didn't push your code to remote",
   "main": "index.ios.js",
   "devDependencies": {},
   "repository": {
