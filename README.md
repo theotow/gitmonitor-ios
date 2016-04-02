@@ -6,7 +6,6 @@
 
 The purpose of this app is to remind you to push your code before you shut your macbook and go home, it may be that other people depend on it or your harddrive dies on the way home...
 
-![flow](https://github.com/theotow/gitmonitor-ios/raw/master/github/flow.png "flow")
 
 ## how to install
 
@@ -39,6 +38,9 @@ Open Xcode project in ios/ folder
 ![img 1](https://github.com/theotow/gitmonitor-ios/raw/master/github/IMG_1743.PNG "img1")
 ![img 2](https://github.com/theotow/gitmonitor-ios/raw/master/github/IMG_1742.PNG "img2")
 
+## changelog
+
+[see here](https://github.com/theotow/gitmonitor-ios/blob/master/CHANGELOG.md)
 
 ## depends on
 
@@ -51,7 +53,7 @@ Tested on Mac OSX 10.10.5 & node 4.2.2 & Xcode 7.2.1
 
 ## open todos
 
-* [ ] add settings to make endpoint changeable
+* [ x ] add settings to make endpoint changeable
 * [ ] cleanup / simplify
 
 ## how to contribute
