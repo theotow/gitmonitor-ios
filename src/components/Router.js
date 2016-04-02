@@ -1,6 +1,7 @@
 import React, { Navigator } from 'react-native';
 import ListView from '../views/ListView';
 import QrView from '../views/QrView';
+import SettingsView from '../views/SettingsView';
 
 export default function(route, navigator){
   switch(route.name){
@@ -12,6 +13,11 @@ export default function(route, navigator){
     case "QrView":
       return (
         <QrView navigator={navigator} />
+      )
+    break;
+    case "SettingsView":
+      return (
+        <SettingsView navigator={navigator} />
       )
     break;
   }

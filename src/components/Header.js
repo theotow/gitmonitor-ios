@@ -1,4 +1,4 @@
-import React from "react-native";
+import React, { PropTypes } from "react-native";
 
 
 let {
@@ -58,8 +58,7 @@ var styles = StyleSheet.create({
   right: {
     width: 50,
     right: 0,
-    padding: 8,
-    opacity: 0
+    padding: 8
   },
   txt: {
     fontFamily: 'Lato',
@@ -71,21 +70,33 @@ var styles = StyleSheet.create({
 
 // TODO: make click prop, make name prop
 
-export default class Header extends Component {
+class Header extends Component {
 
-  _onPressButton(){
-    //TODO: settings
+  _hide(style, bool) {
+    if(bool) return {
+      ...style,
+      opacity: 0
+    }
+    return style
   }
 
   render() {
+
+    const {
+      props: {
+        hideSettings
+      },
+      _hide
+    } = this.props
+
     return (
       <View style={styles.header}>
         <View style={styles.headerInner}>
           <View style={styles.left}>
             <Text style={styles.txt}>GITMONITOR</Text>
           </View>
-          <View style={styles.right}>
-            <TouchableOpacity style={styles.imgWrap} onPress={this._onPressButton}>
+          <View style={_hide(styles.right, hideSettings)}>
+            <TouchableOpacity style={styles.imgWrap}>
               <Image source={require('image!Group')} style={styles.img} />
             </TouchableOpacity>
           </View>
@@ -94,3 +105,10 @@ export default class Header extends Component {
     );
   }
 }
+
+Header.propsTypes = {
+  goSettings: PropTypes.func,
+  hideSettings: PropTypes.bool.isRequired
+}
+
+export default Header

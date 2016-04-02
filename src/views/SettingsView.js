@@ -26,51 +26,29 @@ var styles = StyleSheet.create({
   }
 })
 
-class QrView extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      checking: false
-    }
-  }
+class SettingsView extends Component {
 
   _goList(){
     this.props.navigator.replace({name: 'ListView'})
   }
 
-  _qrScan(repoId){
-    let that = this;
-
-    // kill if already processing
-    if(this.state.checking || !repoId || !repoId.data) return;
-
-    this.setState({checking: true})
-    utils.link(
-      this.props.settings.endpoint,
-      this.props.settings.userId, repoId.data).then((data) => {
-      that.setState({checking: false})
-      that._goList()
-    }).catch(() => {
-      alert('linking failed')
-      that.setState({checking: false})
-    })
-  }
-
   render() {
 
     const {
-      _qrScan
+      props: {
+        settings
+      },
+      _qrScan,
+      _goList
     } = this
 
     return (
       <View style={styles.container}>
-        <Camera onScan={_qrScan.bind(this)} />
         <Header hideSettings={true} />
         <Button
           left={true}
           image={require('image!Xbutton')}
-          style={styles.btnLeft} onClick={this._goList.bind(this)} />
+          style={styles.btnLeft} onClick={_goList.bind(this)} />
       </View>
     )
   }
@@ -82,4 +60,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(QrView)
+export default connect(mapStateToProps)(SettingsView)
