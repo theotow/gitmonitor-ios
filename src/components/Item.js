@@ -1,6 +1,7 @@
 import React from 'react-native';
 import { trimBranch } from '../utils/helper';
 import _ from 'lodash';
+import { STYLE } from '../constants'
 
 let {
   View,
@@ -11,14 +12,15 @@ let {
   TouchableHighlight,
   Component,
   AlertIOS,
-  StyleSheet
+  StyleSheet,
+  PropTypes
 } = React;
 
-var stylesRaw = {
+const styles = {
   itemWrap: {
-    paddingLeft: 20,
-    paddingTop: 20,
-    paddingRight: 20,
+    paddingLeft: STYLE.PADDING,
+    paddingTop: STYLE.PADDING,
+    paddingRight: STYLE.PADDING,
     flex: 1,
   },
   itemWrapInner: {
@@ -29,10 +31,10 @@ var stylesRaw = {
     position: 'absolute',
     top: 0,
     right: 0,
-    backgroundColor: '#8D8D8D'
+    backgroundColor: STYLE.YELLOW
   },
   branchTxt: {
-    fontFamily: 'Lato',
+    fontFamily: STYLE.FONT_LATO,
     fontWeight: 'bold',
     fontSize: 12,
     letterSpacing: 1.2,
@@ -44,17 +46,17 @@ var stylesRaw = {
     paddingRight: 10
   },
   box: {
-    backgroundColor: '#000000',
+    backgroundColor: STYLE.BLACK,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
     borderBottomWidth: 10,
-    borderBottomColor: '#000000',
+    borderBottomColor: STYLE.BLACK,
     paddingLeft: 10,
     paddingTop: 10,
     paddingRight: 10
   },
   boxTxt: {
-    fontFamily: 'Droid Sans Mono',
+    fontFamily: STYLE.FONT_DROID,
     overflow: 'hidden',
     fontSize: 10,
     color: 'white',
@@ -72,16 +74,13 @@ var stylesRaw = {
   },
   itemTxt: {
     fontSize: 16,
-    fontFamily: 'Lato',
+    fontFamily: STYLE.FONT_LATO,
     fontWeight: 'bold',
     letterSpacing: 1.2,
   }
 }
-var styles = StyleSheet.create(stylesRaw);
 
-// TODO: make image changable with prop, left / right , make click prop
-
-export default class ItemList extends Component {
+class ItemList extends Component {
 
   _allBranches(branches){
     var trimed = _.map(branches, function(branch){
@@ -147,12 +146,12 @@ export default class ItemList extends Component {
           <View style={styles.branch}>
             <Text style={styles.branchTxt}>{trimBranch(branch)}</Text>
           </View>
-          <View style={_getStyle('wrap', stylesRaw.boxWrap, open)}>
-            <View style={_getStyle('box', stylesRaw.box, reversed)}>
-              <Text style={_getStyle('boxTxt', stylesRaw.boxTxt, reversed)}>Author: {author}</Text>
-              <Text style={_getStyle('boxTxt', stylesRaw.boxTxt, reversed)}>Commitmsg: {message}</Text>
-              <Text style={_getStyle('boxTxt', stylesRaw.boxTxt, reversed)}>Status: Ahead {status.ahead} / Behind {status.behind} </Text>
-              <Text style={_getStyle('boxTxt', stylesRaw.boxTxt, reversed)}>Branches: {_allBranches(branches)}</Text>
+          <View style={_getStyle('wrap', styles.boxWrap, open)}>
+            <View style={_getStyle('box', styles.box, reversed)}>
+              <Text style={_getStyle('boxTxt', styles.boxTxt, reversed)}>Author: {author}</Text>
+              <Text style={_getStyle('boxTxt', styles.boxTxt, reversed)}>Commitmsg: {message}</Text>
+              <Text style={_getStyle('boxTxt', styles.boxTxt, reversed)}>Status: Ahead {status.ahead} / Behind {status.behind} </Text>
+              <Text style={_getStyle('boxTxt', styles.boxTxt, reversed)}>Branches: {_allBranches(branches)}</Text>
             </View>
           </View>
         </View>
@@ -161,3 +160,18 @@ export default class ItemList extends Component {
     );
   }
 }
+
+ItemList.propTypes = {
+  name: PropTypes.string.isRequired,
+  branch: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  status: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+  branches: PropTypes.array.isRequired,
+  reversed: PropTypes.bool.isRequired,
+  clickHandler: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired
+}
+
+export default ItemList

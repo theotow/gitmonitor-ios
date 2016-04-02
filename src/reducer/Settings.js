@@ -10,7 +10,8 @@ export const SettingsConst = mirror([
   'SET_TOKEN',
   'SET_DATA',
   'SET_USERID',
-  'SETTINGS'
+  'SETTINGS',
+  'SET_ENDPOINT'
 ])
 
 export function Reducer(state = initialState, action) {
@@ -22,6 +23,11 @@ export function Reducer(state = initialState, action) {
       }
     case SettingsConst.SET_DATA:
       return action.payload
+    case SettingsConst.SET_ENDPOINT:
+      return {
+        ...state,
+        endpoint: action.payload.endpoint
+      }
     case SettingsConst.SET_TOKEN:
       return {
         ...state,

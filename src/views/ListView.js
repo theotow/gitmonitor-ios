@@ -7,7 +7,7 @@ import Camera from '../components/Camera';
 import ItemList from '../components/ItemList';
 
 import * as RepoActions from '../actions/RepoActions'
-
+import { ROUTER } from '../constants'
 
 let {
   View,
@@ -29,7 +29,11 @@ var styles = StyleSheet.create({
 class ListView extends Component {
 
   _goQr(){
-    this.props.navigator.replace({name: 'QrView'});
+    this.props.navigator.replace({name: ROUTER.QR});
+  }
+
+  _goSettings(){
+    this.props.navigator.replace({name: ROUTER.SETTINGS});
   }
 
   _toggleRepo(id){
@@ -55,7 +59,7 @@ class ListView extends Component {
     return (
       <View style={styles.container}>
         <ItemList items={repos.repos} clickHandler={_toggleRepo.bind(this)} />
-        <Header />
+        <Header hideSettings={false} goSettings={this._goSettings.bind(this)} />
         <Button
           image={require('image!Scanbutton')}
           style={styles.btnLeft}

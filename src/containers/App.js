@@ -46,7 +46,7 @@ class App extends Component {
   render() {
     return (
       <Navigator
-          initialRoute={{name: 'ListView'}}
+          initialRoute={{name: 'SettingsView'}}
           renderScene={Router}
           configureScene={Router.configureScene}
       />

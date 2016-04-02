@@ -1,6 +1,7 @@
 import React from 'react-native';
 import _ from 'lodash';
 import Item from './Item';
+import { STYLE } from '../constants'
 
 let {
   View,
@@ -13,7 +14,7 @@ let {
   StyleSheet
 } = React;
 
-var stylesRaw = {
+const styles = {
   scrollView: {
     top: 78,
     bottom: 70,
@@ -23,20 +24,17 @@ var stylesRaw = {
   },
   unpushed: {
     backgroundColor: 'black',
-    paddingBottom: 20
+    paddingBottom: STYLE.PADDING
   },
   noRepos: {
-    padding: 20
+    padding: STYLE.PADDING
   },
   noReposTxt: {
     textAlign: 'center',
     fontSize: 16,
-    fontFamily: 'Lato'
+    fontFamily: STYLE.FONT_LATO
   }
 };
-var styles = StyleSheet.create(stylesRaw)
-
-// TODO: https://github.com/jsdf/react-native-refreshable-listview
 
 export default class ItemList extends Component {
 
@@ -98,7 +96,7 @@ export default class ItemList extends Component {
        style={styles.scrollView}>
        {(unpushedItems.length > 0 || pushedItems.length > 0)
        ? <View>
-         <View style={_hidePad((unpushedItems.length === 0), stylesRaw.unpushed)}>
+         <View style={_hidePad((unpushedItems.length === 0), styles.unpushed)}>
            {_mapItems(unpushedItems, clickHandler)}
          </View>
          {_mapItems(pushedItems, clickHandler)}

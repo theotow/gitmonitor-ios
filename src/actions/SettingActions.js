@@ -26,6 +26,18 @@ export function signup(){
   }
 }
 
+export function changeEndpoint(url){
+  return (dispatch, getState) => {
+    return dispatch({
+      type: SettingsConst.SET_ENDPOINT,
+      payload: {
+        endpoint: url
+      },
+      presist: true
+    })
+  }
+}
+
 export function writeStore(){
   return (dispatch, getState) => {
     return AsyncStorage.setItem(SettingsConst.SETTINGS, JSON.stringify(getState().settings))

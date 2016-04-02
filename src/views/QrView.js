@@ -8,6 +8,7 @@ import ItemList from '../components/ItemList'
 
 import * as RepoActions from '../actions/RepoActions'
 import * as utils from '../utils/api'
+import { ROUTER } from '../constants'
 
 let {
   View,
@@ -36,7 +37,7 @@ class QrView extends Component {
   }
 
   _goList(){
-    this.props.navigator.replace({name: 'ListView'})
+    this.props.navigator.replace({name: ROUTER.LIST})
   }
 
   _qrScan(repoId){
@@ -66,7 +67,7 @@ class QrView extends Component {
     return (
       <View style={styles.container}>
         <Camera onScan={_qrScan.bind(this)} />
-        <Header />
+        <Header hideSettings={true} />
         <Button
           left={true}
           image={require('image!Xbutton')}

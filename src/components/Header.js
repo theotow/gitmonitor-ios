@@ -1,5 +1,5 @@
-import React from "react-native";
-
+import React, { PropTypes } from "react-native";
+import { STYLE } from '../constants'
 
 let {
   View,
@@ -12,11 +12,11 @@ let {
   StyleSheet
 } = React;
 
-var styles = StyleSheet.create({
+var styles = {
   header: {
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
-    borderTopWidth: 15,
+    borderTopLeftRadius: STYLE.BORDER_RADIUS,
+    borderTopRightRadius: STYLE.BORDER_RADIUS,
+    borderTopWidth: STYLE.BORDER_RADIUS,
     borderColor: '#FFF147',
     height: 60,
     position: 'absolute',
@@ -27,14 +27,14 @@ var styles = StyleSheet.create({
     backgroundColor: '#FFF147',
   },
   headerInner: {
-    paddingLeft: 20,
+    paddingLeft: STYLE.PADDING,
     flex: 1,
     backgroundColor: 'transparent',
     flexDirection: 'row',
-    marginTop: -15,
+    marginTop: -STYLE.BORDER_RADIUS,
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingRight: 20,
+    paddingRight: STYLE.PADDING,
   },
   img: {
     width: 22,
@@ -59,33 +59,44 @@ var styles = StyleSheet.create({
     width: 50,
     right: 0,
     padding: 8,
-    opacity: 0
+    opacity: 1
   },
   txt: {
-    fontFamily: 'Lato',
+    fontFamily: STYLE.FONT_LATO,
     letterSpacing: 1.5,
     fontWeight: 'bold',
     fontSize: 22,
   }
-});
+};
 
-// TODO: make click prop, make name prop
+class Header extends Component {
 
-export default class Header extends Component {
-
-  _onPressButton(){
-    //TODO: settings
+  hide(style, bool) {
+    if(bool) return {
+      ...style,
+      opacity: 0
+    }
+    return style
   }
 
   render() {
+
+    const {
+      props: {
+        hideSettings,
+        goSettings
+      },
+      hide
+    } = this
+
     return (
       <View style={styles.header}>
         <View style={styles.headerInner}>
           <View style={styles.left}>
             <Text style={styles.txt}>GITMONITOR</Text>
           </View>
-          <View style={styles.right}>
-            <TouchableOpacity style={styles.imgWrap} onPress={this._onPressButton}>
+          <View style={hide(styles.right, hideSettings)}>
+            <TouchableOpacity style={styles.imgWrap} onPress={goSettings}>
               <Image source={require('image!Group')} style={styles.img} />
             </TouchableOpacity>
           </View>
@@ -94,3 +105,10 @@ export default class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  hideSettings: PropTypes.bool.isRequired,
+  goSettings: PropTypes.func
+}
+
+export default Header

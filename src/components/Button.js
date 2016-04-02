@@ -1,5 +1,5 @@
 import React from "react-native";
-
+import { STYLE } from '../constants'
 
 let {
   View,
@@ -14,20 +14,20 @@ let {
 
 var styles = StyleSheet.create({
   img: {
-    width: 108,
-    height: 108,
+    width: STYLE.BTN_W,
+    height: STYLE.BTN_H,
   },
   imgWrapLeft: {
-    width: 108,
-    height: 108,
+    width: STYLE.BTN_W,
+    height: STYLE.BTN_H,
     backgroundColor: 'transparent',
     bottom: 0,
     left: 0,
     position: 'absolute',
   },
   imgWrapRight: {
-    width: 108,
-    height: 108,
+    width: STYLE.BTN_W,
+    height: STYLE.BTN_H,
     backgroundColor: 'transparent',
     bottom: 0,
     right: 0,
