@@ -1,11 +1,13 @@
 import mirror from '../utils/mirror'
 
 const initialState = {
-  repos: []
+  repos: [],
+  loading: false
 }
 
 export const ReposConst = mirror([
   'REPO_SUCCESS',
+  'REPO_LOADING',
   'REPO_TOGGLE',
   'REPO_ERROR'
 ])
@@ -19,7 +21,10 @@ export function Reducer(state = initialState, action) {
           open: !item.open
         } : item
       })
-      return {repos: mappedRepos}
+      return {
+        ...state,
+        repos: mappedRepos
+      }
     case ReposConst.REPO_SUCCESS:
       let mappedReposS = _.map(action.payload, function(item){
         return {
@@ -27,7 +32,20 @@ export function Reducer(state = initialState, action) {
           open: false
         }
       })
-      return {repos: mappedReposS}
+      return {
+        loading: false,
+        repos: mappedReposS
+      }
+    case ReposConst.REPO_ERROR:
+      return {
+        loading: false,
+        repos: state.repos
+      }
+    case ReposConst.REPO_LOADING:
+      return {
+        loading: true,
+        repos: state.repos
+      }
     default:
       return state
   }

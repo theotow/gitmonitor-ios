@@ -58,7 +58,7 @@ class ListView extends Component {
 
     return (
       <View style={styles.container}>
-        <ItemList items={repos.repos} clickHandler={_toggleRepo.bind(this)} />
+        <ItemList items={repos.repos} loading={repos.loading} clickHandler={_toggleRepo.bind(this)} />
         <Header hideSettings={false} goSettings={this._goSettings.bind(this)} />
         <Button
           image={require('image!Scanbutton')}

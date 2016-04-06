@@ -3,7 +3,7 @@ import mirror from '../utils/mirror'
 const initialState = {
   endpoint: 'http://dockerhost.dev:3000',
   token: null,
-  userId: null
+  userId: '22ewjksdksdkj'
 }
 
 export const SettingsConst = mirror([

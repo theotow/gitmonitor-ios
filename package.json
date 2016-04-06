@@ -3,13 +3,15 @@
   "version": "1.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "node_modules/react-native/packager/packager.sh",
+    "bundle": "react-native bundle --dev false --entry-file ./index.ios.js --bundle-output ./ios/main.jsbundle --platform ios"
   },
   "dependencies": {
     "babel-core": "^5.8.34",
     "babel-loader": "^5.0.0",
     "babel-runtime": "^5.1.8",
     "lodash": "^4.2.1",
+    "react-mixin": "^2.0.2",
     "react-native": "^0.17.0",
     "react-native-camera": "^0.3.8",
     "react-native-remote-push": "^1.0.1",

@@ -5,6 +5,9 @@ import * as utils from '../utils/api'
 
 export function getList(iId) {
   return (dispatch, getState) => {
+    dispatch({
+      type: ReposConst.REPO_LOADING
+    })
     utils.list(getState().settings.endpoint, iId).then(response => response.json()).then((data) => {
       dispatch({
         type: ReposConst.REPO_SUCCESS,

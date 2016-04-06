@@ -26,6 +26,15 @@ const styles = {
     backgroundColor: 'black',
     paddingBottom: STYLE.PADDING
   },
+  icon: {
+    height: 30,
+    width: 30
+  },
+  loading: {
+    flex: 1,
+    padding: STYLE.PADDING,
+    alignItems: 'center'
+  },
   noRepos: {
     padding: STYLE.PADDING
   },
@@ -74,7 +83,7 @@ export default class ItemList extends Component {
     });
   }
 
-  render() {
+  _list(){
 
     const {
       props: {
@@ -89,20 +98,37 @@ export default class ItemList extends Component {
     let unpushedItems = _unPushedItems(items);
     let pushedItems = _pushedItems(items);
 
+    if(unpushedItems.length > 0 || pushedItems.length > 0){
+      return (
+        <View>
+          <View style={_hidePad((unpushedItems.length === 0), styles.unpushed)}>
+            {_mapItems(unpushedItems, clickHandler)}
+          </View>
+          {_mapItems(pushedItems, clickHandler)}
+         </View>
+      )
+    }else{
+      return <View style={styles.noRepos}><Text style={styles.noReposTxt}>You didnt add any Repo yet :(</Text></View>
+    }
+  }
+
+  render() {
+
     return (
       <ScrollView
        automaticallyAdjustContentInsets={false}
        scrollEventThrottle={200}
        style={styles.scrollView}>
-       {(unpushedItems.length > 0 || pushedItems.length > 0)
-       ? <View>
-         <View style={_hidePad((unpushedItems.length === 0), styles.unpushed)}>
-           {_mapItems(unpushedItems, clickHandler)}
-         </View>
-         {_mapItems(pushedItems, clickHandler)}
-        </View>
-       : <View style={styles.noRepos}><Text style={styles.noReposTxt}>You didnt add any Repo yet :(</Text></View>
-       }
+       {(!this.props.loading)
+       ? this._list()
+       : <View style={styles.loading}>
+         <Image
+          style={styles.icon}
+          source={require('../assets/loader.gif')}
+        />
+      <Text style={styles.noReposTxt}>Updating repos...</Text>
+       </View>
+      }
      </ScrollView>
     );
   }

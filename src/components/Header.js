@@ -41,9 +41,10 @@ var styles = {
     height: 5,
   },
   imgWrap: {
-    width: 22,
-    height: 5,
-    top: 6,
+    width: 32,
+    height: 20,
+    padding: 5,
+    top: 0,
     right: 0,
     position: 'absolute',
   },

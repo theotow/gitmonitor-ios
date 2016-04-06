@@ -1,14 +1,14 @@
 import React, { Component, Navigator, AlertIOS, PushNotificationIOS } from 'react-native'
 import RemotePushIOS from 'react-native-remote-push'
 import { connect } from 'react-redux/native';
+import TimerMixin from 'react-timer-mixin';
+import reactMixin from 'react-mixin';
 
 import * as SettingsActions from '../actions/SettingActions'
 import * as RepoActions from '../actions/RepoActions'
 import Router from '../components/Router'
 import { SettingsConst } from '../reducer/Settings'
-
-// function *hello() {
-// }
+import { ROUTER } from '../constants'
 
 class App extends Component {
 
@@ -39,6 +39,15 @@ class App extends Component {
     // PushNotificationIOS.addEventListener('notification', this._onNotification)
   }
 
+  componentDidMount() {
+    this.setInterval(function(){
+      if(this.props.settings.userId !== null &&
+         that.props.settings.token !== null){
+        this.props.dispatch(RepoActions.getList(this.props.settings.userId));
+      }
+    }.bind(this), 5000);
+  }
+
   _onNotification(notification) {
       // TODO: handle inline notifications
    }
@@ -46,7 +55,7 @@ class App extends Component {
   render() {
     return (
       <Navigator
-          initialRoute={{name: 'SettingsView'}}
+          initialRoute={{name: ROUTER.LIST}}
           renderScene={Router}
           configureScene={Router.configureScene}
       />
@@ -59,5 +68,7 @@ function mapStateToProps(state) {
     settings: state.settings
   }
 }
+
+reactMixin(App.prototype, TimerMixin);
 
 export default connect(mapStateToProps)(App)
