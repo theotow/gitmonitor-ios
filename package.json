@@ -1,5 +1,5 @@
 {
-  "name": "gitmonitor-ios",
+  "name": "gitmonitor.ios",
   "version": "1.0.1",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "babel-runtime": "^5.1.8",
     "lodash": "^4.2.1",
     "react-mixin": "^2.0.2",
-    "react-native": "^0.17.0",
+    "react-native": "^0.18.1",
     "react-native-camera": "^0.3.8",
     "react-native-remote-push": "^1.0.1",
     "react-redux": "^3.1.0",
@@ -25,7 +25,9 @@
   },
   "description": "An app that notifies you if you didn't push your code to remote",
   "main": "index.ios.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-core": "^5.8.38"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theotow/gitmonitor-ios.git"

@@ -42,7 +42,7 @@ class App extends Component {
   componentDidMount() {
     this.setInterval(function(){
       if(this.props.settings.userId !== null &&
-         that.props.settings.token !== null){
+         this.props.settings.token !== null){
         this.props.dispatch(RepoActions.getList(this.props.settings.userId));
       }
     }.bind(this), 5000);
