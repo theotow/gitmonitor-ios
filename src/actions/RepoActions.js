@@ -8,7 +8,7 @@ export function getList(iId) {
     dispatch({
       type: ReposConst.REPO_LOADING
     })
-    utils.list(getState().settings.endpoint, iId).then(response => response.json()).then((data) => {
+    return utils.list(getState().settings.endpoint, iId).then(response => response.json()).then((data) => {
       dispatch({
         type: ReposConst.REPO_SUCCESS,
         payload: data

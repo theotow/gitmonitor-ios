@@ -23,12 +23,16 @@ class App extends Component {
 
     // get token
     PushNotificationIOS.addEventListener('register', function(devicetoken){
+     console.log('set token')
      that.props.dispatch(SettingsActions.setToken(devicetoken))
      if(that.props.settings.userId !== null &&
         that.props.settings.token !== null){
+          console.log('get list')
           that.props.dispatch(RepoActions.getList(that.props.settings.userId));
      }else{
+       console.log('signup')
        that.props.dispatch(SettingsActions.signup()).then(function(){
+         console.log('get list')
          that.props.dispatch(RepoActions.getList(that.props.settings.userId));
        }).catch(() => {
          alert('signup error')
@@ -39,11 +43,19 @@ class App extends Component {
     // PushNotificationIOS.addEventListener('notification', this._onNotification)
   }
 
+  componentWillUnmount() {
+    alert('unmount')
+  }
+
   componentDidMount() {
-    this.setInterval(function(){
+    let inter = this.setInterval(function(){
       if(this.props.settings.userId !== null &&
          this.props.settings.token !== null){
-        this.props.dispatch(RepoActions.getList(this.props.settings.userId));
+           console.log('get list interval')
+           
+        this.props.dispatch(RepoActions.getList(this.props.settings.userId)).catch(function(){
+          clearInterval(inter)
+        })
       }
     }.bind(this), 5000);
   }

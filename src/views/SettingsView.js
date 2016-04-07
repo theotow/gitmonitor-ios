@@ -67,19 +67,21 @@ class SettingsView extends Component {
 
   constructor(props){
     super(props)
-    this.state = { endpoint: '' }
+    this.state = { endpoint: props.settings.endpoint }
   }
 
   _goList(){
     this.props.navigator.replace({name: ROUTER.LIST})
   }
 
-  _change(value){
-    this.setState({...value})
+  _change(endpoint){
+     this.setState({ ...endpoint })
   }
 
   _send(){
-    this.props.dispatch(SettingsActions.changeEndpoint(this.state.endpoint || this.props.settings.endpoint))
+    this.props.dispatch(SettingsActions.signup()).then(function(){
+      this.props.dispatch(SettingsActions.changeEndpoint(this.state.endpoint || this.props.settings.endpoint))
+    }.bind(this))
   }
 
   render() {
@@ -97,10 +99,11 @@ class SettingsView extends Component {
       <View style={styles.container}>
         <Header hideSettings={true} />
         <View style={styles.view}>
+          <Text>{this.props.endpoint}</Text>
           <Form
             ref="form"
             type={SettingsForm}
-            value={settings}
+            value={this.state}
             onChange={_change.bind(this)}
             options={{stylesheet: stylesheetForm}}
           />

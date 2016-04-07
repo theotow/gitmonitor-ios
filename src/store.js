@@ -16,7 +16,7 @@ const presist = store => next => action => {
 }
 
 
-const createStoreWithMiddleware = applyMiddleware(logger, thunkMiddleware, presist)(createStore)
+const createStoreWithMiddleware = applyMiddleware(thunkMiddleware, presist)(createStore)
 
 export default function storeSetup(initState) {
     return createStoreWithMiddleware(rootReducer, initState)
